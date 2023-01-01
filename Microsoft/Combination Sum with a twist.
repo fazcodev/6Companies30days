@@ -1,0 +1,21 @@
+class Solution {
+public:
+    vector<vector<int>>ans;
+    vector<vector<int>> combinationSum3(int k, int n) {
+        vector<int>v;
+        recur(k, n, 1, v);
+        return ans;
+    }
+    void recur(int k, int n, int i, vector<int>v)
+    {
+        if(n == 0 || i > 9)
+        {
+            if(n == 0 && k == 0)ans.push_back(v);
+            return;
+        }
+        recur(k, n, i+1, v);
+        v.push_back(i);
+        recur(k-1, n-i, i+1, v);
+        
+    }
+};
